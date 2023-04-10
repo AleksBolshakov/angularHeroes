@@ -1,0 +1,27 @@
+<div class="py-3">
+  <h2 class="mb-3">Details</h2>
+
+  <div class="row">
+    <div [ngClass]="selectedHero ? 'col-8' : 'col-12'">
+      <div class="rounded-3 shadow">
+        <table class="table m-0">
+          <thead>
+          <tr>
+            <th class="px-2 text-muted col-1 text-center">ID</th>
+            <th class="px-2 text-muted col">Name</th>
+            <th class="px-2 text-muted col-2 text-center">Actions</th>
+          </tr>
+          <tr *ngFor="let hero of heroes">
+            <td class="px-3 text-center">{{hero.id}}</td>
+            <td class="px-3">{{hero.name}}</td>
+            <td class="px-3 d-grid">
+              <button class="btn btn-primary" (click)="onSelect(hero)">Edit hero</button>
+            </td>
+          </tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+    <app-hero-detail [hero]="selectedHero" class="col-4"></app-hero-detail>
+  </div>
+</div>
